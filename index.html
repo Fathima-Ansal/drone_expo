@@ -1,177 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AeroQuest 25 - Innovation Takes Flight</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&display=swap"
-        rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
+    <title>ASCEND'26 | The Sky Is Not The Limit</title>
+    
+    <link rel="icon" type="image/png" href="acm-logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepDark: '#0b0f11',
+                        electricTeal: '#5FB4B6',
+                        offWhite: '#e0e0e0',
+                        glass: 'rgba(255, 255, 255, 0.03)',
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    cursor: {
+                        none: 'none',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+<body class="font-montserrat selection:bg-electricTeal selection:text-black">
 
-<body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
-    data-bs-smooth-scroll="true" tabindex="0">
+    <div class="noise-overlay"></div>
 
-    <!-- Navbar -->
-    <nav id="navbar-example2"
-        class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark-transparent border-bottom border-secondary">
-        <div class="container">
-            <a class="navbar-brand orbitron" href="index.html">
-                <i class="fa-solid fa-plane-up mx-2"></i>Aero<span class="text-accent">Quest</span> 25
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#events">Events</a></li>
-                    <li class="nav-item"><a class="nav-link btn-glow ms-lg-3" href="register.html">Register Now</a></li>
-                </ul>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div id="preloader">
+        <div class="font-orbitron text-electricTeal text-xl tracking-[0.3em] font-bold">LOADING...</div>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
+        <div class="font-mono text-xs text-gray-500 mt-2">ASCEND 2026</div>
+    </div>
+
+    <canvas id="particleCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40"></canvas>
+
+    <nav id="navbar" class="nav-top">
+        <div class="flex items-center gap-4 interactable cursor-pointer" onclick="window.scrollTo(0,0)">
+            <img src="acm-logo.png" alt="ACM Logo" class="logo-img object-contain"
+                 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg'">
+            <div class="logo-text font-orbitron font-bold text-xl tracking-wider text-white">
+                SAINTGITS <span class="text-gray-500">| ACM</span>
             </div>
+        </div>
+        
+        <div class="nav-links-container hidden md:flex font-orbitron text-xs font-bold tracking-[0.2em]">
+            <a href="#about" class="nav-item text-gray-400 hover:text-electricTeal transition-colors interactable group relative" title="About">
+                <span>ABOUT</span>
+                <i class="fa-solid fa-circle-info hover:scale-125 transition-transform"></i>
+            </a>
+            <a href="#events" class="nav-item text-gray-400 hover:text-electricTeal transition-colors interactable group relative" title="Schedule">
+                <span>SCHEDULE</span>
+                <i class="fa-regular fa-calendar-days hover:scale-125 transition-transform"></i>
+            </a>
+            <a href="#contact" class="nav-item text-gray-400 hover:text-electricTeal transition-colors interactable group relative" title="Contact">
+                <span>CONTACT</span>
+                <i class="fa-solid fa-tower-broadcast hover:scale-125 transition-transform"></i>
+            </a>
+        </div>
+
+        <a href="register.html" target="_blank" class="btn-register hidden md:block border border-electricTeal/50 text-electricTeal px-6 py-2 font-orbitron text-xs font-bold hover:bg-electricTeal hover:text-black transition-all duration-300 interactable">
+            REGISTER
+        </a>
+
+        <div class="md:hidden text-electricTeal text-xl interactable">
+            <i class="fa-solid fa-bars"></i>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section d-flex align-items-center justify-content-center text-center">
-        <div class="hero-overlay"></div>
-        <div class="container position-relative z-2">
-            <h1 class="display-1 fw-bold orbitron text-white glitch" data-text="AEROQUEST 25">AEROQUEST 25</h1>
-            <p class="lead text-light mb-5">Where Innovation Takes the Flight</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#events" class="btn btn-main btn-lg orbitron">Explore Events</a>
-                <a href="#about" class="btn btn-outline-light btn-lg orbitron">Learn More</a>
+    <section id="hero" class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden z-10">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center h-full pt-20">
+            <div class="col-span-12 lg:col-span-7 z-20 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <div class="overflow-hidden mb-2">
+                    <div class="hero-anim text-electricTeal font-mono text-sm tracking-widest mb-2 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-electricTeal rounded-full animate-pulse"></span>  // JAN 5-6
+                    </div>
+                </div>
+                
+                <h1 class="font-orbitron font-black text-6xl md:text-8xl leading-none text-white mb-4 relative">
+                    <span class="block overflow-hidden"><span class="hero-anim block">ASCEND</span></span>
+                    <span class="block overflow-hidden"><span class="hero-anim block text-transparent bg-clip-text bg-gradient-to-r from-electricTeal to-white">'26</span></span>
+                </h1>
+                
+                <div class="overflow-hidden mb-10">
+                    <p class="hero-anim text-gray-400 font-orbitron text-lg md:text-xl tracking-[0.4em] uppercase">The Sky Is Not The Limit</p>
+                </div>
+
+                <div class="hero-anim grid grid-cols-4 gap-4 mb-10 w-full max-w-[400px]">
+                    <div class="text-center">
+                        <span id="days" class="block font-orbitron text-3xl font-bold text-white">00</span>
+                        <span class="text-[10px] text-gray-500 font-mono">DAYS</span>
+                    </div>
+                    <div class="text-center border-l border-gray-800">
+                        <span id="hours" class="block font-orbitron text-3xl font-bold text-white">00</span>
+                        <span class="text-[10px] text-gray-500 font-mono">HRS</span>
+                    </div>
+                    <div class="text-center border-l border-gray-800">
+                        <span id="minutes" class="block font-orbitron text-3xl font-bold text-white">00</span>
+                        <span class="text-[10px] text-gray-500 font-mono">MIN</span>
+                    </div>
+                    <div class="text-center border-l border-gray-800">
+                        <span id="seconds" class="block font-orbitron text-3xl font-bold text-white">00</span>
+                        <span class="text-[10px] text-gray-500 font-mono">SEC</span>
+                    </div>
+                </div>
+
+                <div class="hero-anim">
+                    <a href="#" target="_blank" class="group relative px-10 py-4 bg-electricTeal text-black font-orbitron font-bold overflow-hidden inline-block interactable">
+                        <span class="relative z-10 group-hover:text-white transition-colors duration-300">REGISTER NOW</span>
+                        <div class="absolute top-0 left-0 w-full h-full bg-black transform -translate-x-full skew-x-12 group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
+                    </a>
+                </div>
             </div>
+
+            <div class="col-span-12 lg:col-span-5 h-[400px] lg:h-full flex items-center justify-center relative z-10">
+                <div class="absolute w-[300px] h-[300px] border border-electricTeal/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                <div class="absolute w-[450px] h-[450px] border border-white/5 rounded-full border-dashed animate-[spin_20s_linear_infinite_reverse]"></div>
+                <div class="drone-wrapper relative z-20 interactable">
+                    <img id="drone-img" src="drone.png" alt="Drone" class="w-full max-w-lg filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                    onerror="this.src='https://purepng.com/public/uploads/large/purepng.com-drone-phantomdroneflyingcamerarobottechnologyphantom-981525017831vme1a.png'">
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+            <span class="text-[10px] font-mono tracking-widest text-electricTeal">SCROLL TO EXPLORE</span>
+            <div class="w-[1px] h-10 bg-gradient-to-b from-electricTeal to-transparent"></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-5 section-dark">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="about-img-container">
-                        <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?q=80&w=2070&auto=format&fit=crop"
-                            alt="Drone Tech" class="img-fluid rounded shadow-lg neon-border">
+    <div class="relative z-10 bg-deepDark/80 backdrop-blur-sm border-t border-white/5">
+        
+        <section id="about" class="py-24 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div class="gsap-fade-up">
+                        <h2 class="font-orbitron text-4xl md:text-5xl font-bold text-white mb-2">EVENT <span class="text-electricTeal">OVERVIEW</span></h2>
+                        <div class="h-1 w-20 bg-electricTeal"></div>
+                    </div>
+                    <p class="gsap-fade-up max-w-md text-gray-400 font-mono text-sm leading-relaxed text-right md:text-right text-left">
+                        Innovation meets Elevation
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="glass-panel p-10 rounded-none border-l-4 border-electricTeal gsap-fade-up interactable hover:bg-white/5 transition-colors">
+                        <i class="fa-solid fa-rocket text-4xl text-electricTeal mb-6"></i>
+                        <h3 class="font-orbitron text-2xl text-white mb-4">THE OBJECTIVE</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm">
+                            The objective of Ascend '26 is to spark innovation, collaboration, and technical excellence in the world of drone technology through a nationwide platform that connects creativity with engineering. Organized by ACM Saintgits, this two-day Drone Expo celebrates the spirit of flight and exploration — empowering students to push boundaries in design, autonomy, and intelligent aerial systems.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-panel p-10 rounded-none border-l-4 md:border-l-0 md:border-r-4 border-purple-500 gsap-fade-up interactable hover:bg-white/5 transition-colors">
+                        <i class="fa-solid fa-users-gear text-4xl text-purple-500 mb-6"></i>
+                        <h3 class="font-orbitron text-2xl text-white mb-4">THE EXPERIENCE</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm">
+                            The event aims to offer a complete and engaging learning experience that blends education, innovation, and celebration. Day 1 features a grand Drone Exhibition, followed by an inspiring Expert Talk and a lively Cultural Evening. Day 2 takes flight with the Drone Competition, demonstrating precision and design intelligence. Beyond competition, Ascend '26 strengthens ACM Saintgits’ vision of becoming a hub for advanced learning.
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <h2 class="section-title orbitron text-accent">About AeroQuest 25</h2>
-                    <p class="lead text-light">Where Innovation Takes the Flight</p>
-                    <p class="text-secondary-light">The objective of AeroQuest 25 is to spark innovation, collaboration,
-                        and
-                        technical excellence in the world of drone technology through a nationwide platform that
-                        connects
-                        creativity with engineering. Organized by ACM Saintgits, this two-day Drone Expo celebrates the
-                        spirit of flight and exploration — empowering students to push boundaries in design, autonomy,
-                        and
-                        intelligent aerial systems.</p>
-                    <p class="text-secondary-light">The event aims to offer a complete and engaging learning experience
-                        that
-                        blends education, innovation, and celebration. Day 1 features a grand Drone Exhibition, followed
-                        by
-                        an inspiring Expert Talk and a lively Cultural Evening. Day 2 takes flight with the Drone
-                        Competition, demonstrating precision and design intelligence. Beyond competition, AeroQuest 25
-                        strengthens ACM Saintgits’ vision of becoming a hub for advanced technical learning.</p>
-                    <div class="row mt-4">
-                        <div class="col-6">
-                            <div class="stat-card p-3">
-                                <h3 class="fw-bold orbitron text-white">50+</h3>
-                                <p class="mb-0 text-accent">Drones</p>
+            </div>
+        </section>
+
+        <section id="events" class="py-24 bg-black/40 relative">
+            <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-electricTeal/30 to-transparent"></div>
+            <div class="container mx-auto px-6">
+                <h2 class="font-orbitron text-4xl font-bold text-center mb-20 gsap-fade-up">EVENT <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricTeal to-white">SCHEDULE</span></h2>
+                <div class="relative max-w-4xl mx-auto">
+                    <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-[1px] bg-gray-800 md:-translate-x-1/2 ml-4 md:ml-0"></div>
+                    <div class="relative mb-16 flex flex-col md:flex-row items-center justify-between w-full group gsap-fade-up">
+                        <div class="md:w-5/12 order-2 md:order-1 pl-12 md:pl-0 md:text-right md:pr-10">
+                            <div class="glass-panel p-6 border-l-2 md:border-l-0 md:border-r-2 border-electricTeal interactable hover:scale-[1.02] transition-transform">
+                                <h3 class="font-orbitron text-xl text-white">OPENING CEREMONY</h3>
+                                <p class="text-sm text-gray-400 mt-1">Keynote & Light Show</p>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="stat-card p-3">
-                                <h3 class="fw-bold orbitron text-white">10k+</h3>
-                                <p class="mb-0 text-accent">Prizes</p>
+                        <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-black border-2 border-electricTeal rounded-full flex items-center justify-center z-10 -translate-x-1/2 md:translate-x-[-50%] ml-4 md:ml-0 order-1 shadow-[0_0_15px_#5FB4B6]">
+                            <div class="w-2 h-2 bg-electricTeal rounded-full"></div>
+                        </div>
+                        <div class="md:w-5/12 order-3 pl-12 md:pl-10">
+                            <span class="font-mono text-electricTeal text-sm">JAN 05 // 09:00</span>
+                        </div>
+                    </div>
+                    <div class="relative mb-16 flex flex-col md:flex-row items-center justify-between w-full group gsap-fade-up">
+                        <div class="md:w-5/12 order-2 md:order-1 pl-12 md:pl-0 md:text-right md:pr-10">
+                            <span class="font-mono text-electricTeal text-sm">JAN 05 // 11:00</span>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-black border-2 border-gray-600 rounded-full flex items-center justify-center z-10 -translate-x-1/2 md:translate-x-[-50%] ml-4 md:ml-0 order-1 group-hover:border-electricTeal transition-colors">
+                            <div class="w-2 h-2 bg-gray-600 group-hover:bg-electricTeal rounded-full transition-colors"></div>
+                        </div>
+                        <div class="md:w-5/12 order-3 pl-12 md:pl-10">
+                            <div class="glass-panel p-6 border-l-2 border-electricTeal interactable hover:scale-[1.02] transition-transform">
+                                <h3 class="font-orbitron text-xl text-white">QUALIFIERS</h3>
+                                <p class="text-sm text-gray-400 mt-1">Time Trials & Obstacle Nav</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center justify-between w-full group gsap-fade-up">
+                        <div class="md:w-5/12 order-2 md:order-1 pl-12 md:pl-0 md:text-right md:pr-10">
+                            <div class="glass-panel p-6 border-l-2 md:border-l-0 md:border-r-2 border-purple-500 interactable hover:scale-[1.02] transition-transform">
+                                <h3 class="font-orbitron text-xl text-white">GRAND FINALE</h3>
+                                <p class="text-sm text-gray-400 mt-1">Top 10 Showdown</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-black border-2 border-purple-500 rounded-full flex items-center justify-center z-10 -translate-x-1/2 md:translate-x-[-50%] ml-4 md:ml-0 order-1 shadow-[0_0_15px_purple]">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        </div>
+                        <div class="md:w-5/12 order-3 pl-12 md:pl-10">
+                            <span class="font-mono text-purple-400 text-sm">JAN 06 // 14:00</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Events Section -->
-    <section id="events" class="py-5 section-black">
-        <div class="container py-5">
-            <h2 class="text-center section-title orbitron mb-5 text-white">Event Highlights</h2>
-            <div class="row g-4">
-                <!-- Event 1 -->
-                <div class="col-md-4">
-                    <div class="card event-card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box mb-3">
-                                <i class="fa-solid fa-flag-checkered fa-3x text-accent"></i>
+        <section id="contact" class="py-24 bg-deepDark relative">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 gsap-fade-up">
+                    <h2 class="font-orbitron text-4xl font-bold mb-4">GET IN <span class="text-electricTeal">TOUCH</span></h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        We are here to help. Reach out to the team for any queries or sponsorship details.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    
+                    <div class="glass-panel p-0 rounded-xl flex flex-col items-center text-center overflow-hidden gsap-fade-up interactable hover:border-electricTeal transition-colors group h-full">
+                        <div class="p-8 pb-4 w-full flex flex-col items-center">
+                            <div class="w-16 h-16 rounded-full bg-electricTeal/10 flex items-center justify-center group-hover:bg-electricTeal/20 transition-colors mb-6">
+                                <i class="fa-solid fa-location-dot text-3xl text-electricTeal"></i>
                             </div>
-                            <h3 class="card-title orbitron text-white">Drone Racing</h3>
-                            <p class="card-text text-secondary-light">High-speed FPV racing through a custom-built
-                                obstacle
-                                course. Test your piloting skills against the best.</p>
+                            <h3 class="font-orbitron text-xl text-white mb-2">LOCATION</h3>
+                            <p class="text-gray-400 font-mono text-sm leading-relaxed mb-6">
+                                Saintgits College of Engineering (Autonomous), Kottayam, Kerala<br>
+                                Kottukulam Hills, Pathamuttam P. O<br>
+                                Kerala 686532
+                            </p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Saintgits+College+of+Engineering" target="_blank" class="inline-block bg-electricTeal/10 border border-electricTeal/30 text-electricTeal px-4 py-2 font-mono text-xs rounded hover:bg-electricTeal hover:text-black transition-all">
+                                VIEW ON MAPS
+                            </a>
+                        </div>
+                        <div class="w-full h-48 border-t border-gray-800">
+                            <iframe 
+                                src="https://maps.google.com/maps?q=Saintgits+College+of+Engineering&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0; filter: grayscale(100%) invert(90%);" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
                         </div>
                     </div>
-                </div>
-                <!-- Event 2 -->
-                <div class="col-md-4">
-                    <div class="card event-card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box mb-3">
-                                <i class="fa-solid fa-screwdriver-wrench fa-3x text-accent"></i>
-                            </div>
-                            <h3 class="card-title orbitron text-white">Assembly Workshop</h3>
-                            <p class="card-text text-secondary-light">Learn how to build your own drone from scratch.
-                                Hands-on guidance from industry experts.</p>
+
+                    <div class="glass-panel p-10 rounded-xl flex flex-col items-center text-center justify-center gap-6 gsap-fade-up interactable hover:border-electricTeal transition-colors group h-full">
+                        <div class="w-16 h-16 rounded-full bg-electricTeal/10 flex items-center justify-center group-hover:bg-electricTeal/20 transition-colors">
+                            <i class="fa-solid fa-address-book text-3xl text-electricTeal"></i>
                         </div>
-                    </div>
-                </div>
-                <!-- Event 3 -->
-                <div class="col-md-4">
-                    <div class="card event-card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box mb-3">
-                                <i class="fa-solid fa-microchip fa-3x text-accent"></i>
-                            </div>
-                            <h3 class="card-title orbitron text-white">Tech Talks</h3>
-                            <p class="card-text text-secondary-light">Seminars on the future of autonomous flight, AI
-                                integration, and commercial applications of drones.</p>
+                        <div>
+                            <h3 class="font-orbitron text-xl text-white mb-2">CONTACT INFO</h3>
+                            <p class="text-gray-400 font-mono text-sm leading-relaxed space-y-2">
+                                <a href="mailto:acm@saintgits.org" class="block hover:text-electricTeal transition-colors">acm@saintgits.org</a>
+                                <span class="block">+91 91888 47571</span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-
-
-    <!-- Footer -->
-    <footer id="contact" class="py-5 bg-black text-center text-light border-top border-secondary">
-        <div class="container">
-            <h2 class="orbitron mb-4 text-accent">Ready to Fly?</h2>
-            <p class="mb-5">Join us at the college main auditorium on <strong>October 25th, 2025</strong></p>
-            <div class="mx-auto mb-5">
-                <a href="register.html" class="btn btn-main orbitron btn-lg px-5">Go to Registration</a>
+        <footer id="footer" class="bg-black py-12 border-t border-white/10">
+            <div class="container mx-auto px-6 flex flex-col items-center justify-center text-center">
+                <div class="flex gap-8 mb-8">
+                    <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-electricTeal hover:text-black hover:border-electricTeal transition-all duration-300 interactable">
+                        <i class="fa-brands fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-electricTeal hover:text-black hover:border-electricTeal transition-all duration-300 interactable">
+                        <i class="fa-brands fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-electricTeal hover:text-black hover:border-electricTeal transition-all duration-300 interactable">
+                        <i class="fa-brands fa-twitter text-xl"></i>
+                    </a>
+                </div>
+                <div class="mb-6 opacity-80">
+                     <img src="acm-logo.png" alt="ACM Logo" class="h-12 w-auto mx-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                     onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg'">
+                </div>
+                <div class="text-xs font-mono text-gray-500 space-y-2">
+                    <p>SAINTGITS COLLEGE OF ENGINEERING</p>
+                    <p>KOTTAYAM, KERALA</p>
+                    <p class="pt-4 opacity-50">&copy; 2026 ASCEND EVENT. ALL RIGHTS RESERVED.</p>
+                </div>
             </div>
-            <div class="social-icons mb-4">
-                <a href="#" class="text-light mx-2 fs-4"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="text-light mx-2 fs-4"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="text-light mx-2 fs-4"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-            <p>&copy; 2025 ACM Student Chapter. All Rights Reserved.</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. LOADING SCREEN LOGIC (With Safety Failsafe)
+        const preloader = document.getElementById('preloader');
+        const progressBar = document.querySelector('.loader-progress');
+        
+        function removeLoader() {
+            gsap.to(preloader, {
+                yPercent: -100,
+                duration: 0.8,
+                ease: "power4.inOut",
+                onComplete: initSiteAnimations
+            });
+        }
+
+        window.addEventListener('load', () => {
+            gsap.to(progressBar, {
+                width: '100%',
+                duration: 0.5,
+                onComplete: removeLoader
+            });
+        });
+
+        setTimeout(() => {
+            if (preloader.getBoundingClientRect().top === 0) {
+                console.log("Forcing loader removal...");
+                removeLoader();
+            }
+        }, 2000);
+
+        // 2. NAV BAR LOGIC
+        const navbar = document.getElementById('navbar');
+        let isSideMode = false;
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (window.innerWidth > 768) {
+                if (scrollY > 150 && !isSideMode) {
+                    isSideMode = true;
+                    navbar.classList.remove('nav-top');
+                    navbar.classList.add('nav-side');
+                } else if (scrollY <= 150 && isSideMode) {
+                    isSideMode = false;
+                    navbar.classList.remove('nav-side');
+                    navbar.classList.add('nav-top');
+                }
+            }
+        });
+
+        // 3. SITE ANIMATIONS
+        function initSiteAnimations() {
+            gsap.from(".hero-anim", {
+                y: 50, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out"
+            });
+            gsap.from("#drone-img", {
+                scale: 0.8, opacity: 0, duration: 1.5, ease: "back.out(1.7)", delay: 0.5
+            });
+            gsap.utils.toArray('.gsap-fade-up').forEach(element => {
+                gsap.from(element, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 50, opacity: 0, duration: 1, ease: "power3.out"
+                });
+            });
+        }
+
+        // 4. MOUSE INTERACTIONS
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = `${e.clientX}px`;
+            cursorDot.style.top = `${e.clientY}px`;
+            gsap.to(cursorOutline, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
+        });
+
+        const interactables = document.querySelectorAll('.interactable'); 
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.body.classList.add('hovering');
+                gsap.to(el, { scale: 1.05, duration: 0.3 });
+            });
+            el.addEventListener('mouseleave', () => {
+                document.body.classList.remove('hovering');
+                gsap.to(el, { scale: 1, duration: 0.3 });
+            });
+        });
+
+        // 5. DRONE PARALLAX
+        const droneImg = document.getElementById('drone-img');
+        const heroSection = document.getElementById('hero');
+        heroSection.addEventListener('mousemove', (e) => {
+            const xPos = (e.clientX / window.innerWidth - 0.5);
+            const yPos = (e.clientY / window.innerHeight - 0.5);
+            gsap.to(droneImg, {
+                rotationY: xPos * 20, rotationX: -yPos * 20, x: xPos * 30, y: yPos * 30,
+                duration: 1, ease: "power2.out"
+            });
+        });
+
+        // 6. TIMER & CANVAS
+        const targetDate = new Date('January 5, 2026 09:00:00').getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            if(distance < 0) return;
+            document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }, 1000);
+
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if(this.x > canvas.width) this.x = 0;
+                if(this.x < 0) this.x = canvas.width;
+                if(this.y > canvas.height) this.y = 0;
+                if(this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(95, 180, 182, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        function initParticles() { for(let i=0; i<50; i++) particles.push(new Particle()); }
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update(); p.draw();
+                particles.forEach(p2 => {
+                    const dx = p.x - p2.x; const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if(dist < 100) {
+                        ctx.strokeStyle = `rgba(95, 180, 182, ${0.1 - dist/1000})`;
+                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                    }
+                });
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        initParticles();
+        animateParticles();
+    </script>
 </body>
-
 </html>
