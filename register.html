@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - AeroQuest 25</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-black text-light">
+
+    <!-- Navigation -->
+    <nav id="navbar-example2"
+        class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark-transparent border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand orbitron" href="index.html">
+                <i class="fa-solid fa-plane-up mx-2"></i>Aero<span class="text-accent">Quest</span> 25
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link btn-glow ms-lg-3" href="register.html">Register Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Section -->
+    <section class="py-5 mt-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h1 class="orbitron text-accent fw-bold">Team Registration</h1>
+                        <p class="lead text-secondary-light">Join the future of flight. Register your team below.</p>
+                    </div>
+
+                    <form id="registrationForm" class="p-4 rounded shadow-lg neon-border bg-dark-surface">
+
+                        <!-- Leader Details -->
+                        <h3 class="orbitron text-white mb-4 border-bottom border-secondary pb-2"><i
+                                class="fa-solid fa-user-astronaut me-2 text-accent"></i>Team Leader</h3>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary-light">Full Name</label>
+                                <input type="text" class="form-control form-control-dark" name="leader_name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary-light">Email Address</label>
+                                <input type="email" class="form-control form-control-dark" name="leader_email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary-light">Contact Number</label>
+                                <input type="tel" class="form-control form-control-dark" name="leader_contact" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary-light">Semester</label>
+                                <select class="form-select form-control-dark" name="leader_sem">
+                                    <option selected value="">Choose...</option>
+                                    <option value="1">1st</option>
+                                    <option value="2">2nd</option>
+                                    <option value="3">3rd</option>
+                                    <option value="4">4th</option>
+                                    <option value="5">5th</option>
+                                    <option value="6">6th</option>
+                                    <option value="7">7th</option>
+                                    <option value="8">8th</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary-light">Branch / Major</label>
+                                <input type="text" class="form-control form-control-dark" name="leader_branch" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-secondary-light">Institution / College</label>
+                                <input type="text" class="form-control form-control-dark" name="leader_college"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- Team Members -->
+                        <h3 class="orbitron text-white mb-4 border-bottom border-secondary pb-2 mt-5"><i
+                                class="fa-solid fa-users me-2 text-accent"></i>Team Members</h3>
+
+                        <!-- Member 1 -->
+                        <div class="card bg-black border-secondary mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-accent mb-3">Member 1</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-dark" name="member1_name"
+                                            placeholder="Full Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-dark" name="member1_email"
+                                            placeholder="Email">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-dark" name="member1_branch"
+                                            placeholder="Branch">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="tel" class="form-control form-control-dark" name="member1_contact"
+                                            placeholder="Contact">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Member 2 -->
+                        <div class="card bg-black border-secondary mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-accent mb-3">Member 2</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-dark" name="member2_name"
+                                            placeholder="Full Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-dark" name="member2_email"
+                                            placeholder="Email">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-dark" name="member2_branch"
+                                            placeholder="Branch">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="tel" class="form-control form-control-dark" name="member2_contact"
+                                            placeholder="Contact">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Member 3 -->
+                        <div class="card bg-black border-secondary mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-accent mb-3">Member 3</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-dark" name="member3_name"
+                                            placeholder="Full Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-dark" name="member3_email"
+                                            placeholder="Email">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control form-control-dark" name="member3_branch"
+                                            placeholder="Branch">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="tel" class="form-control form-control-dark" name="member3_contact"
+                                            placeholder="Contact">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Section -->
+                        <h3 class="orbitron text-white mb-4 border-bottom border-secondary pb-2 mt-5"><i
+                                class="fa-solid fa-credit-card me-2 text-accent"></i>Payment Details</h3>
+                        <div class="row g-4 align-items-center">
+                            <div class="col-md-5 text-center">
+                                <div class="bg-white p-2 d-inline-block rounded">
+                                    <!-- QR Code Placeholder -->
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=example"
+                                        alt="Payment QR" class="img-fluid">
+                                </div>
+                                <p class="text-secondary-light mt-2 small">Scan to Pay via UPI</p>
+                                <p class="text-light fw-bold">acm-drone@upi</p>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mb-3">
+                                    <label class="form-label text-secondary-light">Transaction ID</label>
+                                    <input type="text" class="form-control form-control-dark" name="txn_id" required
+                                        placeholder="e.g. 1234567890">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-secondary-light">Upload Payment Screenshot</label>
+                                    <input type="file" id="screenshotInput" class="form-control form-control-dark"
+                                        accept="image/*" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-5">
+                            <button type="submit" id="submitBtn" class="btn btn-main btn-lg orbitron w-100">
+                                <span id="btnText">Complete Registration</span>
+                                <span id="btnLoader" class="spinner-border spinner-border-sm ms-2 d-none" role="status"
+                                    aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark-surface neon-border text-center">
+                <div class="modal-body p-5">
+                    <i class="fa-solid fa-circle-check fa-4x text-accent mb-3"></i>
+                    <h2 class="orbitron text-white mb-3">Registration Successful!</h2>
+                    <p class="text-secondary-light">Thank you for registering for AeroQuest 25. We have received your
+                        details.</p>
+                    <button type="button" class="btn btn-main orbitron mt-3" data-bs-dismiss="modal"
+                        onclick="window.location.href='index.html'">Return to Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-5 bg-black text-center text-light border-top border-secondary">
+        <div class="container">
+            <h2 class="orbitron mb-4 text-accent">Ready to Fly?</h2>
+            <p class="mb-5">Join us at the college main auditorium on <strong>October 25th, 2025</strong></p>
+            <div class="mx-auto mb-5">
+                <a href="register.html" class="btn btn-main orbitron btn-lg px-5">Go to Registration</a>
+            </div>
+            <div class="social-icons mb-4">
+                <a href="#" class="text-light mx-2 fs-4"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-light mx-2 fs-4"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="text-light mx-2 fs-4"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2025 ACM Student Chapter. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Form Submission Script -->
+    <script>
+        const form = document.getElementById('registrationForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoader = document.getElementById('btnLoader');
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Show Loading State
+            submitBtn.disabled = true;
+            btnText.textContent = 'Registering...';
+            btnLoader.classList.remove('d-none');
+
+            try {
+                // Collect Data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                // Handle File Upload (Convert to Base64)
+                const fileInput = document.getElementById('screenshotInput');
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    const reader = new FileReader();
+
+                    data.screenshot = await new Promise((resolve) => {
+                        reader.onload = (e) => resolve(e.target.result);
+                        reader.readAsDataURL(file);
+                    });
+                }
+
+                // Send Data to Google Apps Script
+                await fetch('https://script.google.com/macros/s/AKfycbyzl8C7ejaIBwCavpcrSnwwzZ2ijnnqbuDazTVKewEmWyU-Playm5NPU_owkAk_SzOVMg/exec', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    mode: 'no-cors' // Important for Google Apps Script to avoid CORS errors
+                });
+
+                // Show Success
+                successModal.show();
+                form.reset();
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            } finally {
+                // Reset Button
+                submitBtn.disabled = false;
+                btnText.textContent = 'Complete Registration';
+                btnLoader.classList.add('d-none');
+            }
+        });
+    </script>
+</body>
+
+</html>
