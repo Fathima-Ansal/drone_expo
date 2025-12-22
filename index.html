@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="hero-anim">
-                    <a href="#" target="_blank" class="group relative px-10 py-4 bg-electricTeal text-black font-orbitron font-bold overflow-hidden inline-block interactable">
+                    <a href="register.html" target="_blank" class="group relative px-10 py-4 bg-electricTeal text-black font-orbitron font-bold overflow-hidden inline-block interactable">
                         <span class="relative z-10 group-hover:text-white transition-colors duration-300">REGISTER NOW</span>
                         <div class="absolute top-0 left-0 w-full h-full bg-black transform -translate-x-full skew-x-12 group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
                     </a>
@@ -208,7 +208,7 @@
                     </div>
                     <div class="relative mb-16 flex flex-col md:flex-row items-center justify-between w-full group gsap-fade-up">
                         <div class="md:w-5/12 order-2 md:order-1 pl-12 md:pl-0 md:text-right md:pr-10">
-                            <span class="font-mono text-electricTeal text-sm">JAN 05 // 11:00</span>
+                            <span class="font-mono text-electricTeal text-sm">FEB 05 // 11:00</span>
                         </div>
                         <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-black border-2 border-gray-600 rounded-full flex items-center justify-center z-10 -translate-x-1/2 md:translate-x-[-50%] ml-4 md:ml-0 order-1 group-hover:border-electricTeal transition-colors">
                             <div class="w-2 h-2 bg-gray-600 group-hover:bg-electricTeal rounded-full transition-colors"></div>
@@ -231,7 +231,7 @@
                             <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
                         </div>
                         <div class="md:w-5/12 order-3 pl-12 md:pl-10">
-                            <span class="font-mono text-purple-400 text-sm">JAN 06 // 14:00</span>
+                            <span class="font-mono text-purple-400 text-sm">FEB 06 // 14:00</span>
                         </div>
                     </div>
                 </div>
@@ -340,13 +340,6 @@
                 onComplete: removeLoader
             });
         });
-
-        setTimeout(() => {
-            if (preloader.getBoundingClientRect().top === 0) {
-                console.log("Forcing loader removal...");
-                removeLoader();
-            }
-        }, 2000);
 
         // 2. NAV BAR LOGIC
         const navbar = document.getElementById('navbar');
