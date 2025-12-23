@@ -140,8 +140,6 @@
                 <div class="absolute w-[300px] h-[300px] border border-electricTeal/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
                 <div class="absolute w-[450px] h-[450px] border border-white/5 rounded-full border-dashed animate-[spin_20s_linear_infinite_reverse]"></div>
                 <div class="drone-wrapper relative z-20 interactable">
-                    <img id="drone-img" src="drone.png" alt="Drone" class="w-full max-w-lg filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
-                    onerror="this.src='https://purepng.com/public/uploads/large/purepng.com-drone-phantomdroneflyingcamerarobottechnologyphantom-981525017831vme1a.png'">
                 </div>
             </div>
         </div>
@@ -317,7 +315,7 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // 1. LOADING SCREEN LOGIC 
+// 1. LOADING SCREEN LOGIC (With Safety Failsafe)
         const preloader = document.getElementById('preloader');
         const progressBar = document.querySelector('.loader-progress');
         
@@ -329,7 +327,7 @@
                 onComplete: initSiteAnimations
             });
         }
-
+        
         window.addEventListener('load', () => {
             gsap.to(progressBar, {
                 width: '100%',
