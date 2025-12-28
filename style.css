@@ -59,7 +59,7 @@ body.hovering .cursor-outline {
 #navbar.nav-top {
     width: 100%;
     height: 70px;          /* Compact height */
-    padding: 0 20px;       /* Compact padding */
+    padding: 10px 20px;       /* Compact padding */
     background: rgba(11, 15, 17, 0.9); /* Dark background for readability */
     backdrop-filter: blur(10px);       /* Glass effect */
     display: flex;
@@ -84,13 +84,20 @@ body.hovering .cursor-outline {
     #navbar.nav-top {
         height: 100px;
         padding: 0 60px;
-        background: transparent; /* Clear background */
+        background: transparent;
         backdrop-filter: none;
         border-bottom: none;
     }
 
     #navbar.nav-top .logo-img { height: 40px; }
     #navbar.nav-top .logo-text { font-size: 1.25rem; }
+
+    /* --- THIS WAS MISSING: ADDS SPACE BETWEEN LINKS --- */
+    #navbar.nav-top .nav-links-container {
+        display: flex;
+        gap: 60px; /* Adjust this value to increase/decrease space */
+        align-items: center;
+    }
 
     /* SIDEBAR STATE (Desktop Only) */
     #navbar.nav-side {
@@ -115,7 +122,7 @@ body.hovering .cursor-outline {
     
     #navbar.nav-side .nav-links-container {
         flex-direction: column;
-        gap: 50px;
+        gap: 50px; /* Vertical spacing in sidebar mode */
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
