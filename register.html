@@ -173,28 +173,59 @@
                         </div>
 
                         <!-- Payment Section -->
-                        <h3 class="orbitron text-white mb-4 border-bottom border-secondary pb-2 mt-5"><i
-                                class="fa-solid fa-credit-card me-2 text-accent"></i>Payment Details</h3>
-                        <div class="row g-4 align-items-center">
-                            <div class="col-md-5 text-center">
-                                <div class="bg-white p-2 d-inline-block rounded">
-                                    <!-- QR Code Placeholder -->
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=example"
-                                        alt="Payment QR" class="img-fluid">
+                        <h3 class="orbitron text-white mb-4 border-bottom border-secondary pb-2 mt-5">
+                            <i class="fa-solid fa-credit-card me-2 text-accent"></i>Payment Details
+                        </h3>
+
+                        <div class="row g-4">
+                            <div class="col-md-5">
+                                
+                                <div class="text-center mb-4">
+                                    <div class="bg-white p-2 d-inline-block rounded">
+                                        <img src="payment-qr.jpg" alt="Payment QR" class="img-fluid" style="max-width: 150px;">
+                                    </div>
+                                    <p class="text-secondary-light mt-2 small mb-1">Scan to Pay via UPI</p>
+                                    <p class="text-light fw-bold font-monospace">gauthamk0011@oksbi</p>
                                 </div>
-                                <p class="text-secondary-light mt-2 small">Scan to Pay via UPI</p>
-                                <p class="text-light fw-bold">acm-drone@upi</p>
+
+                                <div class="p-3 rounded border border-secondary bg-dark bg-opacity-50">
+                                    <h6 class="text-accent orbitron mb-3 border-bottom border-secondary pb-2">
+                                        <i class="fa-solid fa-building-columns me-2"></i>Bank Transfer
+                                    </h6>
+                                    <ul class="list-unstyled text-secondary-light small mb-0">
+                                        <li class="mb-2 d-flex justify-content-between">
+                                            <span>Account Name:</span> 
+                                            <span class="text-light fw-bold text-end">Gautham Krishna</span>
+                                        </li>
+                                        <li class="mb-2 d-flex justify-content-between">
+                                            <span>Account No:</span> 
+                                            <span class="text-light fw-bold font-monospace">42087054306</span>
+                                        </li>
+                                        <li class="mb-2 d-flex justify-content-between">
+                                            <span>IFSC Code:</span> 
+                                            <span class="text-light fw-bold font-monospace">SBIN0070112</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <span>Branch:</span> 
+                                            <span class="text-light fw-bold">Athirampuzha</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="col-md-7">
+
+                            <div class="col-md-7 d-flex flex-column justify-content-center">
                                 <div class="mb-3">
-                                    <label class="form-label text-secondary-light">Transaction ID</label>
-                                    <input type="text" class="form-control form-control-dark" name="txn_id" required
-                                        placeholder="e.g. 1234567890">
+                                    <label class="form-label text-secondary-light">Transaction ID / Reference No.</label>
+                                    <input type="text" class="form-control form-control-dark" name="txn_id" required 
+                                        placeholder="e.g. UPI Ref No. or UTR Number">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label text-secondary-light">Upload Payment Screenshot</label>
-                                    <input type="file" id="screenshotInput" class="form-control form-control-dark"
+                                    <input type="file" id="screenshotInput" class="form-control form-control-dark" 
                                         accept="image/*" required>
+                                    <div class="form-text text-secondary text-opacity-50">
+                                        Please ensure the Transaction ID is visible in the screenshot.
+                                    </div>
                                 </div>
                             </div>
                         </div>
