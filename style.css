@@ -44,41 +44,55 @@ body.hovering .cursor-outline {
 .loader-bar { width: 200px; height: 2px; background: rgba(255,255,255,0.1); margin-top: 20px; position: relative; overflow: hidden; }
 .loader-progress { width: 0%; height: 100%; background: var(--electric-teal); position: absolute; left: 0; }
 
-/* --- 3. NAVIGATION TRANSITIONS (UPDATED FOR LOGO) --- */
+/* --- 3. NAVIGATION TRANSITIONS (FIXED FOR MOBILE) --- */
 #navbar {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 50;
-    transition: width 0.6s ease-in-out, height 0.6s ease-in-out, background-color 0.6s ease, padding 0.6s ease;
+    transition: all 0.5s ease-in-out;
     overflow: hidden;
 }
 
-/* STATE 1: TOP (Horizontal) */
+/* 1. DEFAULT STATE (MOBILE) */
+/* Gives it a background and smaller size so it doesn't overlap weirdly */
 #navbar.nav-top {
     width: 100%;
-    height: 100px;
-    padding: 0 60px;
-    background: transparent;
+    height: 70px;          /* Compact height */
+    padding: 0 20px;       /* Compact padding */
+    background: rgba(11, 15, 17, 0.9); /* Dark background for readability */
+    backdrop-filter: blur(10px);       /* Glass effect */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-#navbar.nav-top .nav-links-container {
-    display: flex;
-    gap: 60px;
-}
-
-/* LOGO IMAGE STYLES */
-.logo-img {
-    height: 40px; /* Default height */
+/* Fix Logo Size on Mobile */
+#navbar.nav-top .logo-img {
+    height: 30px; 
     width: auto;
-    transition: all 0.5s ease;
+}
+#navbar.nav-top .logo-text {
+    font-size: 1rem; /* Smaller font on phone */
 }
 
-/* STATE 2: SIDE (Vertical - Desktop Only) */
+/* 2. DESKTOP OVERRIDES (Width > 768px) */
 @media (min-width: 768px) {
+    
+    /* Make it transparent and big again for Desktop Hero */
+    #navbar.nav-top {
+        height: 100px;
+        padding: 0 60px;
+        background: transparent; /* Clear background */
+        backdrop-filter: none;
+        border-bottom: none;
+    }
+
+    #navbar.nav-top .logo-img { height: 40px; }
+    #navbar.nav-top .logo-text { font-size: 1.25rem; }
+
+    /* SIDEBAR STATE (Desktop Only) */
     #navbar.nav-side {
         width: 90px;
         height: 100vh;
@@ -87,35 +101,18 @@ body.hovering .cursor-outline {
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         border-right: 1px solid rgba(255,255,255,0.05);
+        border-bottom: none;
+        
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: 0;
     }
 
-    /* Transitioning the Logo Text */
-    #navbar .logo-text {
-        opacity: 1;
-        transition: opacity 0.3s ease;
-        white-space: nowrap;
-    }
-    #navbar.nav-side .logo-text {
-        opacity: 0;
-        pointer-events: none;
-        display: none;
-    }
-
-    /* Transitioning the Logo Image */
-    #navbar.nav-side .logo-img {
-        height: 50px; /* Make logo slightly larger in sidebar */
-        margin-bottom: auto;
-    }
-
-    /* Transitioning the Links Container */
-    #navbar .nav-links-container {
-        transition: all 0.5s ease;
-    }
+    /* Side State Animations */
+    #navbar.nav-side .logo-text { display: none; opacity: 0; }
+    #navbar.nav-side .logo-img { height: 50px; margin-bottom: auto; }
+    
     #navbar.nav-side .nav-links-container {
         flex-direction: column;
         gap: 50px;
@@ -126,25 +123,17 @@ body.hovering .cursor-outline {
         align-items: center;
     }
 
-    /* TEXT VS ICON SWAPPING */
-    .nav-item span {
-        display: block; opacity: 1; transition: opacity 0.2s ease;
-    }
-    .nav-item i {
-        display: none; opacity: 0; transform: scale(0.5);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
+    /* Icon Swapping */
+    .nav-item span { display: block; opacity: 1; transition: opacity 0.2s ease; }
+    .nav-item i { display: none; opacity: 0; transition: all 0.4s ease; }
 
-    /* When Side Active */
-    #navbar.nav-side .nav-item span { opacity: 0; display: none; }
-    #navbar.nav-side .nav-item i {
-        display: block; opacity: 1; transform: scale(1);
-        font-size: 1.5rem; color: var(--electric-teal);
-        transition-delay: 0.4s;
+    #navbar.nav-side .nav-item span { display: none; opacity: 0; }
+    #navbar.nav-side .nav-item i { 
+        display: block; opacity: 1; font-size: 1.5rem; 
+        color: var(--electric-teal); transition-delay: 0.4s; transform: scale(1);
     }
 
     /* Vertical Button */
-    #navbar .btn-register { transition: all 0.3s ease; }
     #navbar.nav-side .btn-register {
         margin-top: auto;
         writing-mode: vertical-rl;
