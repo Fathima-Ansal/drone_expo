@@ -92,10 +92,10 @@ body.hovering .cursor-outline {
     #navbar.nav-top .logo-img { height: 40px; }
     #navbar.nav-top .logo-text { font-size: 1.25rem; }
 
-    /* --- THIS WAS MISSING: ADDS SPACE BETWEEN LINKS --- */
+    /* --- ADD THIS BACK: Spacing between desktop links --- */
     #navbar.nav-top .nav-links-container {
         display: flex;
-        gap: 60px; /* Adjust this value to increase/decrease space */
+        gap: 60px; 
         align-items: center;
     }
 
