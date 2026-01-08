@@ -103,22 +103,10 @@
                 </div>
 
                 <div class="hero-anim grid grid-cols-4 gap-2 md:gap-4 mb-10 w-full max-w-[320px] md:max-w-[400px] mx-auto lg:mx-0">
-                    <div class="text-center">
-                        <span id="days" class="block font-orbitron text-2xl md:text-3xl font-bold text-white">00</span>
-                        <span class="text-[10px] text-gray-500 font-mono">DAYS</span>
-                    </div>
-                    <div class="text-center border-l border-gray-800">
-                        <span id="hours" class="block font-orbitron text-2xl md:text-3xl font-bold text-white">00</span>
-                        <span class="text-[10px] text-gray-500 font-mono">HRS</span>
-                    </div>
-                    <div class="text-center border-l border-gray-800">
-                        <span id="minutes" class="block font-orbitron text-2xl md:text-3xl font-bold text-white">00</span>
-                        <span class="text-[10px] text-gray-500 font-mono">MIN</span>
-                    </div>
-                    <div class="text-center border-l border-gray-800">
-                        <span id="seconds" class="block font-orbitron text-2xl md:text-3xl font-bold text-white">00</span>
-                        <span class="text-[10px] text-gray-500 font-mono">SEC</span>
-                    </div>
+                    <div class="text-center"><span id="days" class="block font-orbitron text-2xl md:text-3xl font-bold text-white">00</span><span class="text-[10px] text-gray-500 font-mono">DAYS</span></div>
+                    <div class="text-center border-l border-gray-800"><span id="hours" class="block font-orbitron text-2xl md:text-3xl font-bold text-white">00</span><span class="text-[10px] text-gray-500 font-mono">HRS</span></div>
+                    <div class="text-center border-l border-gray-800"><span id="minutes" class="block font-orbitron text-2xl md:text-3xl font-bold text-white">00</span><span class="text-[10px] text-gray-500 font-mono">MIN</span></div>
+                    <div class="text-center border-l border-gray-800"><span id="seconds" class="block font-orbitron text-2xl md:text-3xl font-bold text-white">00</span><span class="text-[10px] text-gray-500 font-mono">SEC</span></div>
                 </div>
 
                 <div class="hero-anim">
@@ -237,10 +225,11 @@
                         <div class="md:w-5/12 order-2 md:order-1 pl-12 md:pl-0 md:text-right md:pr-10">
                             <div class="glass-panel p-6 border-l-2 md:border-l-0 md:border-r-2 border-electricTeal interactable hover:scale-[1.02] transition-transform">
                                 <h3 class="font-orbitron text-xl text-white">OPENING CEREMONY</h3>
+                                <p class="text-sm text-gray-400 mt-1">Keynote & Light Show</p>
                             </div>
                         </div>
                         <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-black border-2 border-electricTeal rounded-full flex items-center justify-center z-10 -translate-x-1/2 md:translate-x-[-50%] ml-4 md:ml-0 order-1 shadow-[0_0_15px_#5FB4B6]"><div class="w-2 h-2 bg-electricTeal rounded-full"></div></div>
-                        <div class="md:w-5/12 order-3 pl-12 md:pl-10"><span class="font-mono text-electricTeal text-sm">FEB 05 // 10:00</span></div>
+                        <div class="md:w-5/12 order-3 pl-12 md:pl-10"><span class="font-mono text-electricTeal text-sm">FEB 05 // 09:00</span></div>
                     </div>
 
                     <div class="relative mb-16 flex flex-col md:flex-row items-center justify-between w-full group gsap-fade-up">
@@ -248,8 +237,8 @@
                         <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-black border-2 border-gray-600 rounded-full flex items-center justify-center z-10 -translate-x-1/2 md:translate-x-[-50%] ml-4 md:ml-0 order-1 group-hover:border-electricTeal transition-colors"><div class="w-2 h-2 bg-gray-600 group-hover:bg-electricTeal rounded-full transition-colors"></div></div>
                         <div class="md:w-5/12 order-3 pl-12 md:pl-10">
                             <div class="glass-panel p-6 border-l-2 border-electricTeal interactable hover:scale-[1.02] transition-transform">
-                                <h3 class="font-orbitron text-xl text-white">Drone Expo</h3>
-                                <p class="text-sm text-gray-400 mt-1">Exhibition</p>
+                                <h3 class="font-orbitron text-xl text-white">QUALIFIERS</h3>
+                                <p class="text-sm text-gray-400 mt-1">Time Trials & Obstacle Nav</p>
                             </div>
                         </div>
                     </div>
@@ -258,7 +247,7 @@
                         <div class="md:w-5/12 order-2 md:order-1 pl-12 md:pl-0 md:text-right md:pr-10">
                             <div class="glass-panel p-6 border-l-2 md:border-l-0 md:border-r-2 border-purple-500 interactable hover:scale-[1.02] transition-transform">
                                 <h3 class="font-orbitron text-xl text-white">GRAND FINALE</h3>
-                                <p class="text-sm text-gray-400 mt-1">Obstacle Nav</p>
+                                <p class="text-sm text-gray-400 mt-1">Top 10 Showdown</p>
                             </div>
                         </div>
                         <div class="absolute left-0 md:left-1/2 w-8 h-8 bg-black border-2 border-purple-500 rounded-full flex items-center justify-center z-10 -translate-x-1/2 md:translate-x-[-50%] ml-4 md:ml-0 order-1 shadow-[0_0_15px_purple]"><div class="w-2 h-2 bg-purple-500 rounded-full"></div></div>
@@ -277,63 +266,48 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     
                     <div class="glass-panel p-0 rounded-xl flex flex-col items-center text-center overflow-hidden gsap-fade-up interactable hover:border-electricTeal transition-colors group h-full">
-                    <div class="p-8 pb-4 w-full flex flex-col items-center">
-                        <div class="w-16 h-16 rounded-full bg-electricTeal/10 flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-location-dot text-3xl text-electricTeal"></i>
+                        <div class="p-8 pb-4 w-full flex flex-col items-center">
+                            <div class="w-16 h-16 rounded-full bg-electricTeal/10 flex items-center justify-center mb-6"><i class="fa-solid fa-location-dot text-3xl text-electricTeal"></i></div>
+                            <h3 class="font-orbitron text-xl text-white mb-2">LOCATION</h3>
+                            <p class="text-gray-400 font-mono text-sm leading-relaxed mb-6">
+
+http://googleusercontent.com/map_location_reference/1
+                                [Saintgits College of Engineering (Autonomous), Kottayam, Kerala](http://googleusercontent.com/map_location_reference/0)<br>
+                                Kottukulam Hills, Pathamuttam P. O<br>Kerala 686532
+                            </p>
+                            <a href="https://maps.app.goo.gl/YourMapLinkHere" target="_blank" class="inline-block bg-electricTeal/10 border border-electricTeal/30 text-electricTeal px-4 py-2 font-mono text-xs rounded hover:bg-electricTeal hover:text-black transition-all">VIEW ON MAPS</a>
                         </div>
-                        <h3 class="font-orbitron text-xl text-white mb-2">LOCATION</h3>
-                        <p class="text-gray-400 font-mono text-sm leading-relaxed mb-6">
-                            Saintgits College of Engineering (Autonomous)<br>
-                            Kottukulam Hills, Pathamuttam P. O<br>
-                            Kottayam, Kerala 686532
-                        </p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Saintgits+College+of+Engineering+Kottayam" target="_blank" class="inline-block bg-electricTeal/10 border border-electricTeal/30 text-electricTeal px-4 py-2 font-mono text-xs rounded hover:bg-electricTeal hover:text-black transition-all">
-                            VIEW ON MAPS
-                        </a>
+                        <div class="w-full h-48 border-t border-gray-800">
+                            <iframe src="https://maps.google.com/maps?q=Saintgits+College+of+Engineering&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%);" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
                     </div>
-                    <div class="w-full h-48 border-t border-gray-800">
-                        <iframe 
-                            src="https://maps.google.com/maps?q=Saintgits%20College%20of%20Engineering%2C%20Kottayam&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0; filter: grayscale(100%) invert(90%);" 
-                            allowfullscreen="" 
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
+
                     <div class="glass-panel p-10 rounded-xl flex flex-col items-center text-center justify-center gap-6 gsap-fade-up interactable hover:border-electricTeal transition-colors group h-full">
-                        <div class="w-16 h-16 rounded-full bg-electricTeal/10 flex items-center justify-center"><i class="fa-solid fa-address-book text-3xl text-electricTeal"></i></div>
                         <div>
-                        <h3 class="font-orbitron text-xl text-white mb-6">CONTACT INFO</h3>
+                            <h3 class="font-orbitron text-xl text-white mb-6">CONTACT INFO</h3>
+                            <a href="mailto:acm@saintgits.org" class="flex items-center justify-center gap-2 text-electricTeal hover:text-white transition-colors mb-8 group">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span class="font-mono text-sm tracking-widest border-b border-transparent group-hover:border-electricTeal transition-all">acm@saintgits.org</span>
+                            </a>
 
-                        <a href="mailto:acm@saintgits.org" class="flex items-center justify-center gap-2 text-electricTeal hover:text-white transition-colors mb-8 group">
-                            <i class="fa-solid fa-envelope"></i>
-                            <span class="font-mono text-sm tracking-widest border-b border-transparent group-hover:border-electricTeal transition-all">acm@saintgits.org</span>
-                        </a>
-
-                        <div class="space-y-6 text-left w-full max-w-[300px] mx-auto">
-
-                            <div class="border-l-2 border-gray-700 pl-4 hover:border-electricTeal transition-colors duration-300 group">
-                                <span class="text-[10px] font-orbitron text-gray-500 block mb-1 group-hover:text-electricTeal transition-colors">CHAIRPERSON</span>
-                                <span class="text-white font-bold block text-sm">Dhananjay Krishna</span>
-                                <a href="tel:+917012701695" class="text-gray-400 font-mono text-xs hover:text-white transition-colors">+91 70127 01695</a>
+                            <div class="space-y-6 text-left w-full max-w-[300px] mx-auto">
+                                <div class="border-l-2 border-gray-700 pl-4 hover:border-electricTeal transition-colors duration-300 group">
+                                    <span class="text-[10px] font-orbitron text-gray-500 block mb-1 group-hover:text-electricTeal transition-colors">PRESIDENT</span>
+                                    <span class="text-white font-bold block text-sm">Dhananjay Krishna</span>
+                                    <a href="tel:+917012701695" class="text-gray-400 font-mono text-xs hover:text-white transition-colors">+91 70127 01695</a>
+                                </div>
+                                <div class="border-l-2 border-gray-700 pl-4 hover:border-electricTeal transition-colors duration-300 group">
+                                    <span class="text-[10px] font-orbitron text-gray-500 block mb-1 group-hover:text-electricTeal transition-colors">VICE PRESIDENT</span>
+                                    <span class="text-white font-bold block text-sm">Jerit Reji</span>
+                                    <a href="tel:+918921321151" class="text-gray-400 font-mono text-xs hover:text-white transition-colors">+91 89213 21151</a>
+                                </div>
+                                <div class="border-l-2 border-gray-700 pl-4 hover:border-electricTeal transition-colors duration-300 group">
+                                    <span class="text-[10px] font-orbitron text-gray-500 block mb-1 group-hover:text-electricTeal transition-colors">EVENT COORDINATOR</span>
+                                    <span class="text-white font-bold block text-sm">Name Here</span>
+                                    <a href="tel:+910000000000" class="text-gray-400 font-mono text-xs hover:text-white transition-colors">+91 00000 00000</a>
+                                </div>
                             </div>
-
-                            <div class="border-l-2 border-gray-700 pl-4 hover:border-electricTeal transition-colors duration-300 group">
-                                <span class="text-[10px] font-orbitron text-gray-500 block mb-1 group-hover:text-electricTeal transition-colors">VICE CHAIRPERSON</span>
-                                <span class="text-white font-bold block text-sm">Jerit Reji</span>
-                                <a href="tel:+918921321151" class="text-gray-400 font-mono text-xs hover:text-white transition-colors">+91 89213 21151</a>
-                            </div>
-
-                            <div class="border-l-2 border-gray-700 pl-4 hover:border-electricTeal transition-colors duration-300 group">
-                                <span class="text-[10px] font-orbitron text-gray-500 block mb-1 group-hover:text-electricTeal transition-colors">TREASURER</span>
-                                <span class="text-white font-bold block text-sm">Amrutha Ajish Achuthan</span>
-                                <a href="tel:+919496306909" class="text-gray-400 font-mono text-xs hover:text-white transition-colors">+91 94963 06909</a>
-                            </div>
-
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -371,21 +345,8 @@
         });
         setTimeout(() => { if (preloader.getBoundingClientRect().top === 0) removeLoader(); }, 2000);
 
-        // 2. NAV BAR
-        const navbar = document.getElementById('navbar');
-        let isSideMode = false;
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            if (window.innerWidth > 768) {
-                if (scrollY > 150 && !isSideMode) {
-                    isSideMode = true;
-                    navbar.classList.remove('nav-top'); navbar.classList.add('nav-side');
-                } else if (scrollY <= 150 && isSideMode) {
-                    isSideMode = false;
-                    navbar.classList.remove('nav-side'); navbar.classList.add('nav-top');
-                }
-            }
-        });
+        // 2. NAV BAR (Scroll Logic Removed for Stability)
+        // Kept empty or just removed the listener entirely
 
         // 3. ANIMATIONS
         function initSiteAnimations() {
