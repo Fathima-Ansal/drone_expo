@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "tailwind.config.js",
   "scripts": {
+    "build-css": "npx tailwindcss -i tailwind-input.css -o tailwind-dist.css --watch",
+    "build": "npx tailwindcss -i tailwind-input.css -o tailwind-dist.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
