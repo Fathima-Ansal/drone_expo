@@ -27,10 +27,6 @@
             font-weight: normal;
             font-style: normal;
         }
-        
-        /* FOUC Protection */
-        body { opacity: 0; }
-        body.loaded { opacity: 1; transition: opacity 0.4s ease-in-out; }
     </style>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,6 +51,12 @@
                 }
             }
         }
+        
+        // Ensure page is visible and Tailwind loads
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.visibility = 'visible';
+            console.log('Tailwind loaded, page ready');
+        });
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -685,7 +687,6 @@
 
         // === ANIMATIONS ===
         function initSiteAnimations() {
-            document.body.classList.add('loaded');
             gsap.from(".hero-anim", { y: 40, opacity: 0, duration: 0.9, stagger: 0.08, ease: "power3.out" });
             gsap.utils.toArray('.gsap-fade-up').forEach(el => {
                 gsap.from(el, {
