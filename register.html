@@ -264,7 +264,7 @@
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-secondary-light mb-1">Semester</label>
-                                    <select class="w-full px-3 py-2 form-control-dark" name="semester">
+                                    <select class="w-full px-3 py-2 form-control-dark" name="semester" required>
                                         <option selected value="">Choose...</option>
                                         <option value="1">1st</option>
                                         <option value="2">2nd</option>
@@ -496,15 +496,23 @@
             if (role === 'leader') {
                 document.getElementById('leaderSection').classList.add('visible');
                 document.getElementById('memberSection').classList.remove('visible');
-                // Make member 1 fields required for leader
+                // Require all listed team member details for leader registration.
+                document.querySelector('[name="member2_name"]').required = true;
+                document.querySelector('[name="member2_email"]').required = true;
                 document.querySelector('[name="member1_name"]').required = true;
                 document.querySelector('[name="member1_email"]').required = true;
+                document.querySelector('[name="member3_name"]').required = true;
+                document.querySelector('[name="member3_email"]').required = true;
             } else {
                 document.getElementById('leaderSection').classList.remove('visible');
                 document.getElementById('memberSection').classList.add('visible');
                 // Remove required from member fields
+                document.querySelector('[name="member2_name"]').required = false;
+                document.querySelector('[name="member2_email"]').required = false;
                 document.querySelector('[name="member1_name"]').required = false;
                 document.querySelector('[name="member1_email"]').required = false;
+                document.querySelector('[name="member3_name"]').required = false;
+                document.querySelector('[name="member3_email"]').required = false;
             }
 
             // Smooth scroll to the common section
@@ -537,6 +545,11 @@
 
             if (!selectedRole) {
                 alert('Please select whether you are a Team Leader or a Team Member.');
+                return;
+            }
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
                 return;
             }
 
