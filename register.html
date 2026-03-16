@@ -496,13 +496,13 @@
             if (role === 'leader') {
                 document.getElementById('leaderSection').classList.add('visible');
                 document.getElementById('memberSection').classList.remove('visible');
-                // Require all listed team member details for leader registration.
+                // Team size is 2-4 including leader, so only one teammate is mandatory.
                 document.querySelector('[name="member2_name"]').required = true;
                 document.querySelector('[name="member2_email"]').required = true;
-                document.querySelector('[name="member1_name"]').required = true;
-                document.querySelector('[name="member1_email"]').required = true;
-                document.querySelector('[name="member3_name"]').required = true;
-                document.querySelector('[name="member3_email"]').required = true;
+                document.querySelector('[name="member1_name"]').required = false;
+                document.querySelector('[name="member1_email"]').required = false;
+                document.querySelector('[name="member3_name"]').required = false;
+                document.querySelector('[name="member3_email"]').required = false;
             } else {
                 document.getElementById('leaderSection').classList.remove('visible');
                 document.getElementById('memberSection').classList.add('visible');
