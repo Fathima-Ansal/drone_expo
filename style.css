@@ -427,6 +427,13 @@ body.hovering .cursor-outline {
     color: #000;
 }
 
+.register-disabled {
+    cursor: not-allowed !important;
+    pointer-events: auto;
+    opacity: 0.7;
+    filter: grayscale(0.2);
+}
+
 /* --- SECTION DIVIDERS --- */
 .section-gradient-line {
     height: 1px;

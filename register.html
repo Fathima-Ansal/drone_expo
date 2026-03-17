@@ -17,6 +17,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tailwind-dist.css">
+    <script src="registration-config.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -173,6 +174,11 @@
 </head>
 
 <body class="register-body text-light">
+    <script>
+        if (window.REGISTRATION_OPEN === false) {
+            window.location.replace('index.html');
+        }
+    </script>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark-transparent border-bottom border-secondary">

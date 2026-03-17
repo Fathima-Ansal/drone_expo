@@ -33,6 +33,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="registration-config.js"></script>
 </head>
 
 <body class="font-inter selection:bg-accentPrimary selection:text-white">
@@ -646,6 +647,25 @@
     </div>
 
     <script>
+        const registrationsOpen = window.REGISTRATION_OPEN !== false;
+
+        function applyRegistrationState() {
+            if (registrationsOpen) {
+                return;
+            }
+
+            const registerLinks = document.querySelectorAll('a[href="register.html"]');
+            registerLinks.forEach((link) => {
+                link.href = '#';
+                link.classList.add('register-disabled');
+                link.textContent = 'REGISTRATION CLOSED';
+                link.title = 'Registrations are closed';
+                link.addEventListener('click', (event) => event.preventDefault());
+            });
+        }
+
+        applyRegistrationState();
+
         gsap.registerPlugin(ScrollTrigger);
 
         // === PRELOADER ===
