@@ -1,2 +1,2 @@
 
-window.REGISTRATION_OPEN = true;
+window.REGISTRATION_OPEN = false;
